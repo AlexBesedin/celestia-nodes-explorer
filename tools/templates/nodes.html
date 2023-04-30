@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Bridge Nodes / Full Storage Nodes / Light Nodes</title>
+    <link rel="stylesheet" href="{% static 'css/validators.css' %}">
+</head>
+<body>
+    {% include 'header.html' %}
+<br>
+<br>
+    <div class="wrapper">
+      <div class="form-container">
+    <form method="post">
+        {% csrf_token %}
+        <label for="address">Enter a Node Identity:</label>
+        <input type="text" name="address" placeholder="12D3KooWJou3AcyA3vovdaFVU79cTnGAhBzRH4rdY6rpMhxx9vpY" required>
+        <input type="submit" value="Submit">
+    </form>
+    </div>
+    <div class="result-container"></div>
+    {% if data %}
+    <div class="container">
+        <div class="rectangle">
+        <p><strong>Node Type:</strong> {{data.node_type_str}}</p>
+        <p><strong>Node id:</strong> {{data.node_id}}</p>
+        <p><strong>Uptime:</strong> {{ data.uptime}}%</p>
+        <p><strong>Node start:</strong> {{ data.start_time }}</p>
+        <p><strong>Node last restart:</strong> {{ data.last_restart_time}}</p>
+        <p><strong>Node runtime:</strong> {{ data.last_accumulative_node_runtime_counter_in_seconds}} seconds</p>
+        <p><strong>Head:</strong> {{ data.head}}</p>
+        <p><strong>Network Height:</strong> {{ data.network_height}}</p>
+        <p><strong>PayForBlob:</strong> {{ data.pfb_count}}</p>
+        <p><strong>Last PayForBlob:</strong> {{ data.last_pfb_timestamp}}</p>
+        <p><strong>DAS Network Head:</strong> {{ data.das_network_head}}</p>
+        <p><strong>DAS Sampled Chain Head:</strong> {{ data.das_sampled_chain_head}}</p>
+        <p><strong>DAS Sampled Headers:</strong> {{ data.das_sampled_headers_counter}}</p>
+    </div>
+    </div
+    {% endif %}
+</div>
+</div>
+</body>
+</html>

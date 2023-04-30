@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Enter a Node Identity:</title>
+    <link rel="stylesheet" href="{% static 'css/validators.css' %}">
+</head>
+<body>
+    {% include 'header.html' %}
+    
+    <div class="wrapper">
+      <div class="form-container">
+        <form method="post">
+            {% csrf_token %}
+            <label for="address">Enter a Node Identity:</label>
+            <input type="text" name="identity" placeholder="celestiavaloper1xxxxxxxxxxxxxxxxxxxxx" required>
+
+            <input type="submit" value="Submit">
+        </form>
+      </div>
+      
+      <div class="result-container">
+        {% if data %}
+        <div class="container">
+            <div class="rectangle">
+                <p><strong>Node ID:</strong> {{ data.node_id}}</p>
+                <p><strong>Node Type: </strong> {{ data.node_type_str}}</p>
+                <p><strong>Moniker:</strong> {{ data.moniker}}</p>
+                <p><strong>Identity:</strong> {{ data.description.identity}}</p>
+                <p><strong>Details:</strong> {{ data.description.details}}</p>
+                <p><strong>Website:</strong> <a href="{{ data.description.website}}" target="_blank">{{ data.description.website}}</p></a>
+                <p><strong>Security Contact:</strong> {{ data.description.security_contact}}</p>
+                <p><strong>Uptime:</strong> {{ data.uptime}}%</p>
+                <p><strong>Bonded:</strong> {{ data.bonded}}</p>
+                <p><strong>cons_addr:</strong> {{ data.cons_addr}}</p>
+                <p><strong>Jailed:</strong> {{ data.jailed}}</p>
+                <p><strong>Tombstoned:</strong> {{ data.tombstoned}}</p>
+                <p><strong>Start Height:</strong> {{ data.start_height}}</p>
+                <p><strong>Missed blocks:</strong> {{ data.missed_blocks_counter}}</p>
+            </div>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+</body>
+</html>
+

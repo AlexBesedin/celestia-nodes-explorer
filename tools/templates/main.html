@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <title>TIANODES EXPLORER</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="icon" href="{% static 'icon.png' %}" type="image">
+  </head>
+  <body>
+    <div class="header-container">
+      {% include 'header.html' %}
+    </div>
+    <div class="container">
+      <!-- <div class="rectangle"> -->
+        <div class="buttons">
+          <a href="{% url 'validators' %}"><button>I'am a VALIDATOR</button></a>
+          <a href="{% url 'nodes' %}"><button>I'am a BRIDGE / FULL / LIGHT</button></a>
+        </div>  
+      </div>
+    </div>
+    <div class="footer-container">
+      {% include 'footer.html' %}
+    </div>
+  </body>
+</html>
+
