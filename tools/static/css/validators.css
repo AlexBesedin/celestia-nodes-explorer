@@ -87,4 +87,21 @@ body {
     padding: 20px;
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
   }
+
+  .buttons a {
+    display: inline-block;
+    padding: 15px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+  }
   
+  .buttons a button {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+  }

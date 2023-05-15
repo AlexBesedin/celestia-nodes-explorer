@@ -1,0 +1,23 @@
+version: '3.3'
+services:
+  backend:
+    # image: beszedin/nodes:2.0
+    build: ../tools/
+    restart: always
+    volumes:
+      - static_value:/app/static/
+      
+    env_file:
+      - /root/celestia-nodes-explorer/.env 
+  nginx:
+    image: nginx:1.19.3
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - static_value:/var/html/static/
+    depends_on:
+      - backend
+
+volumes:
+  static_value:

@@ -3,23 +3,21 @@
 <html>
   <head>
     <title>TIANODES EXPLORER</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'css/validators.css' %}">
     <link rel="icon" href="{% static 'icon.png' %}" type="image">
   </head>
   <body>
     <div class="header-container">
       {% include 'header.html' %}
     </div>
-    <div class="container">
-      <!-- <div class="rectangle"> -->
-      <div class="buttons">
-        <a href="{% url 'validators' %}"><button>VALIDATORS</button></a>
-        <a href="{% url 'nodes' %}"><button>BRIDGE / FULL / LIGHT</button></a>
+    <div class="wrapper">
+      <div class="form-container">
+        <div class="buttons">
+          <a href="{% url 'validators' %}"><button>VALIDATORS</button></a>
+          <a href="{% url 'nodes' %}"><button>BRIDGE / FULL / LIGHT</button></a>
+        </div>    
       </div>
-    </div>
-    </div>
-    <div class="footer-container">
-      {% include 'footer.html' %}
     </div>
   </body>
 </html>
