@@ -10,8 +10,11 @@ def nodes(request):
     if request.method == 'POST':
         address = request.POST.get('address')
         url = f'https://leaderboard.celestia.tools/api/v1/nodes/{address}'
-        data = fetch_data(url)
-        return render(request, 'nodes.html', {'data': data})
+        try:
+            data = fetch_data(url)
+            return render(request, 'nodes.html', {'data': data})
+        except Exception:
+            return render(request, 'error.html')
     else:
         return render(request, 'nodes.html')
 
