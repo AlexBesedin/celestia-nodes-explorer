@@ -23,8 +23,11 @@ def validators(request):
     if request.method == 'POST':
         identity = request.POST.get('identity')
         url = f'https://leaderboard.celestia.tools/api/v1/validators/{identity}'
-        data = fetch_data(url)
-        return render(request, 'validator.html', {'data': data})
+        try:
+            data = fetch_data(url)
+            return render(request, 'validator.html', {'data': data})
+        except Exception:
+            return render(request, 'error.html')   
     else:
         return render(request, 'validator.html')
 
