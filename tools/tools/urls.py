@@ -14,25 +14,13 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-import logging
-import datetime
-
 from django.contrib import admin
 from django.urls import path
 from expo.views import nodes, home, validators
 
-logger = logging.getLogger('django')
-
-def log_request(request):
-    now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    ip = request.META.get('REMOTE_ADDR')
-    logger.info('Date: %s | Path: %s | Method: %s | IP: %s' % (now, request.path, request.method, ip))
-    return None
 
 urlpatterns = [
     path('', home, name='home'),
     path('validators/', validators, name='validators'),
     path('nodes/', nodes, name='nodes'),
 ]
-
-urlpatterns.append(path('', log_request))

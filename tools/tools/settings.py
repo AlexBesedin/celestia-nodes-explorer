@@ -80,12 +80,12 @@ WSGI_APPLICATION = 'tools.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
@@ -138,18 +138,20 @@ LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'handlers': {
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-        },
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': 'django.log',
+    'file': {
+        'level': 'INFO',
+        'class': 'logging.FileHandler',
+        'filename': os.path.join(BASE_DIR, 'main.log'),
+        'formatter': 'custom',
+    },
+},
+    'formatters': {
+        'custom': {
+            'format': '%(asctime)s, %(levelname)s, %(name)s, %(message)s',
         },
     },
     'root': {
-        'handlers': ['console', 'file'],
-        'level': 'DEBUG',
+        'handlers': ['file'],
+        'level': 'INFO',
     },
 }
