@@ -2,7 +2,6 @@
 
 This is a tool that allows you to explore the network of nodes in the Celestia blockchain. This allows you to view the statistics of the node (Validators, bridge, full storage, light), as well as information about the node and other characteristics.
 
-Сelestia Nodes Explorer: http://94.131.100.195/
 
 ## Project preparation and launch
 
